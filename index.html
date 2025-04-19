@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>عالماشي - تجربة طعام مميزة</title>
+  <!-- Bootstrap CSS (RTL) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff;
+      direction: rtl;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+    /* قائمة التنقل */
+    .navbar {
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+    }
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+      margin: 0 10px;
+      transition: color 0.3s;
+      font-size: 1.1rem;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #000 !important;
+    }
+    /* قسم الـ Hero */
+    .hero {
+      background: url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center/cover;
+      position: relative;
+      height: 100vh;
+      color: #fff;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+    }
+    .hero-content h1 {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    .hero-content p {
+      font-size: 1.5rem;
+    }
+    /* أقسام الموقع */
+    .section {
+      padding: 80px 0;
+    }
+    /* خلفيات متباينة للأقسام */
+    .section:nth-of-type(odd) {
+      background: #fff;
+      color: #333;
+    }
+    .section:nth-of-type(even) {
+      background: #e9f7fc;
+      color: #333;
+    }
+    /* قسم الرؤية والرسالة مع تدرج داكن يضمن تباين النص */
+    .vision-mission {
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      color: #fff;
+    }
+    .vision-mission h3, 
+    .vision-mission p {
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    /* تكبير حجم العناوين والنصوص */
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    /* تأثير hover على الصور */
+    .img-animate {
+      transition: transform 0.5s ease;
+    }
+    .img-animate:hover {
+      transform: scale(1.05);
+    }
+    /* أيقونات الخدمات والسوشيال */
+    .section i {
+      margin-bottom: 15px;
+    }
+    .social-icons a {
+      color: #fff;
+      font-size: 26px;
+      margin: 0 10px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #000;
+    }
+    /* نموذج الاتصال */
+    .contact-form input, .contact-form textarea {
+      border-radius: 0;
+      border: 2px solid #ccc;
+      transition: border-color 0.3s;
+      font-size: 1.1rem;
+      padding: 10px;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: #0072ff;
+      box-shadow: none;
+    }
+    /* هيدر ثابت */
+    .sticky-top {
+      z-index: 1000;
+    }
+    /* قسم بيانات التواصل الإضافية */
+    .contact-info {
+      background: #f1f1f1;
+      padding: 40px 20px;
+      border-top: 2px solid #ddd;
+      border-bottom: 2px solid #ddd;
+      margin-top: 40px;
+      border-radius: 8px;
+    }
+    .contact-info h4 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .contact-info p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .contact-info i {
+      font-size: 1.4rem;
+      margin-left: 8px;
+      color: #0072ff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- قائمة التنقل -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="#">عالماشي</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#hero">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">من نحن</a></li>
+          <li class="nav-item"><a class="nav-link" href="#vision">الرؤية والرسالة</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">الخدمات</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- قسم الـ Hero -->
+  <section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content" data-aos="fade-up">
+      <h1 class="animate__animated animate__fadeInDown">مرحبا بكم في عالماشي</h1>
+      <p class="animate__animated animate__fadeInUp">تجربة طعام تجمع بين النكهات العالمية والضيافة العربية</p>
+      <a href="#about" class="btn btn-lg btn-light mt-4 animate__animated animate__zoomIn">استكشف المزيد</a>
+    </div>
+  </section>
+
+  <!-- قسم من نحن -->
+  <section id="about" class="section">
+    <div class="container" data-aos="fade-right">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=800" class="img-fluid rounded img-animate" alt="مطعم">
+        </div>
+        <div class="col-md-6">
+          <h2>من نحن</h2>
+          <p>نحن مطعم متميز نقدم تجربة طعام متكاملة تجمع بين الجودة العالية والابتكار في تقديم الأطباق. يحرص فريقنا على تقديم خدمة ترضي كافة الأذواق.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم الرؤية والرسالة -->
+  <section id="vision" class="section vision-mission">
+    <div class="container" data-aos="fade-left">
+      <div class="row text-center">
+        <div class="col-md-6 mb-4">
+          <h3>رؤيتنا</h3>
+          <p>أن نصبح الرائدين في تقديم تجارب طعام لا تُنسى تجمع بين الجودة والابتكار.</p>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h3>رسالتنا</h3>
+          <p>تقديم تجربة طعام فريدة ترتكز على الجودة والتميز مع لمسة عصرية تلبي توقعات ضيوفنا.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم الخدمات -->
+  <section id="services" class="section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="text-center mb-5">خدماتنا</h2>
+      <div class="row">
+        <div class="col-md-4 text-center mb-4">
+          <i class="fas fa-utensils fa-3x text-warning"></i>
+          <h4>أطباق مبتكرة</h4>
+          <p>تشكيلة واسعة من الأطباق تجمع بين النكهات التقليدية والحديثة.</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <i class="fas fa-concierge-bell fa-3x text-success"></i>
+          <h4>خدمة احترافية</h4>
+          <p>فريق عمل متفاني يسعى لتلبية احتياجات ضيوفنا بأعلى معايير الجودة.</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <i class="fas fa-music fa-3x text-info"></i>
+          <h4>أجواء مميزة</h4>
+          <p>تصميم داخلي عصري مع أجواء موسيقية تضفي رونقاً خاصاً على تجربتك.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم تواصل معنا مع بيانات إضافية -->
+  <section id="contact" class="section bg-light">
+    <div class="container" data-aos="fade-up">
+      <h2 class="text-center mb-5">تواصل معنا</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <form class="contact-form">
+            <div class="mb-3">
+              <label for="name" class="form-label">الاسم</label>
+              <input type="text" class="form-control" id="name" placeholder="أدخل اسمك">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">البريد الإلكتروني</label>
+              <input type="email" class="form-control" id="email" placeholder="أدخل بريدك الإلكتروني">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">رسالتك</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="أدخل رسالتك"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">إرسال</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="contact-info text-center">
+            <h4>بيانات الاتصال</h4>
+            <p><i class="fas fa-map-marker-alt"></i> العنوان: شارع المثال 123، المدينة، الدولة</p>
+            <p><i class="fas fa-phone-alt"></i> الهاتف: 0123 456 789</p>
+            <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@example.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم السوشيال ميديا والتذييل -->
+  <footer class="section text-center" style="background: #333; color:#fff;">
+    <div class="container" data-aos="fade-up">
+      <h4>تابعنا على وسائل التواصل الاجتماعي</h4>
+      <div class="social-icons my-3">
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>© 2025 عالماشي. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>
