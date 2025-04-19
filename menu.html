@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المنيو – عالماشي</title>
+  <!-- Bootstrap RTL -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #e52e71;
+      --secondary: #ff8a00;
+      --light-bg: #f9f9f9;
+      --dark-text: #333;
+    }
+    body {
+      margin: 0; padding: 0;
+      direction: rtl;
+      font-family: 'Arial', sans-serif;
+      background: #fff;
+      color: var(--dark-text);
+    }
+    .navbar { background: linear-gradient(90deg, var(--secondary), var(--primary)); }
+    .nav-link {
+      color: #fff !important;
+            font-family: 'Cairo', sans-serif;
+ font-weight: 600; margin: 0 12px;
+      transition: color .3s;
+    }
+    .nav-link:hover { color: #000 !important; }
+    #menu .menu-card {
+      max-width: 260px; margin: auto;
+      border: none; border-radius:8px; overflow:hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+    #menu .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    #menu .card-img-top {
+      height: 160px; object-fit: cover;
+    }
+    .card-body { text-align: center; }
+    .card-title { transition: color .3s; }
+    #menu .menu-card:hover .card-title { color: var(--primary); }
+    .price { font-weight: bold; color: var(--primary); margin-top: .5rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="index.html">عالماشي</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu2">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#hero">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">من نحن</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#vision">الرؤية والرسالة</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">الخدمات</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-5 container" data-aos="fade-up">
+    <h2 class="text-center mb-5 animate__fadeInDown">قائمة الطعام</h2>
+    <div class="row g-4 justify-content-center">
+      <script>
+        const dishes = [
+          { name:'كشري', img:'https://images.deliveryhero.io/image/hungerstation/menus/menuitem/hsimg-4103152?width=1440&quality=75?auto=compress&cs=tinysrgb&w=800', desc:'أرز، عدس، مكرونة، بصل محمر وصوص طماطم', price:'60 ج' },
+          { name:'مولوخية بالدجاج', img:'https://eldahan.com.eg/wp-content/uploads/2021/03/%D8%B7%D8%A7%D8%AC%D9%86-%D9%85%D9%84%D9%88%D8%AE%D9%8A%D8%A9-%D8%A8%D8%A7%D9%84%D8%AF%D8%AC%D8%A7%D8%AC.png?auto=compress&cs=tinysrgb&w=800', desc:'مقلوبة مولوخية مع صدور دجاج', price:'75 ج' },
+          { name:'حواوشي', img:'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=800', desc:'خبز محشو بلحم مفروم متبل', price:'50 ج' },
+          { name:'فول مدمس', img:'https://media.elwatannews.com/media/img/mediaarc/large/12655072901701328221.jpg?auto=compress&cs=tinysrgb&w=800', desc:'فول ناعم مع زيت زيتون وليمون', price:'30 ج' },
+          { name:'طعمية', img:'https://cdn.alweb.com/thumbs/afkaralfatoor/article/fit727x484/1/%D9%88%D8%B5%D9%81%D8%A7%D8%AA-%D8%B7%D8%B9%D9%85%D9%8A%D8%A9-%D9%85%D9%86%D9%88%D8%B9%D8%A9.jpeg?auto=compress&cs=tinysrgb&w=800', desc:'فلافل مصرية مقرمشة', price:'40 ج' },
+          { name:'كبدة إسكندراني', img:'https://www.yumlista.com/storage/recipes/BgjqBeiQrGHVjksZfSgShxry7EvtUmeJ26IrmBsE.jpg?auto=compress&cs=tinysrgb&w=800', desc:'كبدة بقري متبلة مع بصل وفلفل', price:'65 ج' },
+          { name:'صيادية', img:'https://www.maggiarabia.com/sites/default/files/styles/home_stage_944_531/public/srh_recipes/141bb2981afb260f65de95a52a8634b3.jpg?h=4f5b30f1&itok=5NMTD-3B?auto=compress&cs=tinysrgb&w=800', desc:'أرز بسمتي مع سمك مقلي وصلصة', price:'90 ج' },
+          { name:'ورق عنب', img:'https://kitchen.sayidaty.net/uploads/small/5b/5bef8cc242193cf619a0b66670568db3_w750_h500.jpg?auto=compress&cs=tinysrgb&w=800', desc:'محشي أرز وخضار بورق عنب', price:'55 ج' },
+          { name:'محشي كوسة', img:'https://media.elbalad.news/2024/10/large/878/8/504.jpeg?auto=compress&cs=tinysrgb&w=800', desc:'كوسا محشية أرز وبهارات', price:'55 ج' },
+          { name:'بامية باللحم', img:'https://static.webteb.net/images/content/tbl_articles_article_22000_369e4dfe055-5ce9-40b5-bebb-deb78b7bf4d2.jpg?auto=compress&cs=tinysrgb&w=800', desc:'بامية مطبوخة مع قطع لحم', price:'70 ج' },
+          { name:'حمام محشي', img:'https://img-global.cpcdn.com/recipes/c42f3582d0abf32c/1200x630cq70/photo.jpg?auto=compress&cs=tinysrgb&w=800', desc:'حمام محشو أرز وبهارات', price:'120 ج' },
+          { name:'كفتة', img:'https://i.ytimg.com/vi/PP751QSUGkI/maxresdefault.jpg?auto=compress&cs=tinysrgb&w=800', desc:'كفتة لحم بقري متبلة', price:'65 ج' },
+          { name:'مشاوي مشكلة', img:'https://www.albayan.ae/assets/archives/images/2014/06/29/2154618.jpg?auto=compress&cs=tinysrgb&w=800', desc:'تشكيلة مشاوي لحم ودجاج', price:'150 ج' },
+          { name:'فتة', img:'https://kitchen.sayidaty.net/uploads/small/b5/b57e8897cd9b585d1d78cb39079dffc7_w750_h500.jpg?auto=compress&cs=tinysrgb&w=800', desc:'أرز وخبز وصوص لحم', price:'80 ج' },
+          { name:'سلطة بلدي', img:'https://static.rashaqa.net/uploads/image_202409242356017451097.jpg?auto=compress&cs=tinysrgb&w=800', desc:'خيار، طماطم، بصل، فلفل رومي', price:'35 ج' },
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const row = document.querySelector('#menu .row');
+          dishes.forEach((d, i) => {
+            const col = document.createElement('div');
+            col.className = 'col-md-4';
+            col.innerHTML = `
+              <div class="card menu-card animate__fadeInUp" data-aos="zoom-in" data-aos-delay="${100*(i+1)}">
+                <img src="${d.img}" class="card-img-top" alt="${d.name}">
+                <div class="card-body">
+                  <h5 class="card-title">${d.name}</h5>
+                  <p class="card-text">${d.desc}</p>
+                  <p class="price">${d.price}</p>
+                </div>
+              </div>`;  
+            row.appendChild(col);
+          });
+        });
+      </script>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-3 bg-dark text-center text-white">
+    <p>© 2025 عالماشي. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script> AOS.init({ duration: 800, once: true }); </script>
+</body>
+</html>
